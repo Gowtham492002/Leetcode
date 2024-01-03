@@ -1,0 +1,44 @@
+Word Pattern:-
+
+CODE:-
+
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        words = s.split()
+        if len(pattern) != len(words):
+            return False
+        c_w = {}
+        w_c = {}
+        for i in range(0,len(pattern)):
+            if pattern[i] not in c_w:
+                c_w[pattern[i]] = words[i]
+            elif pattern[i] in c_w:
+                value = c_w[pattern[i]]
+                if value == words[i]:
+                    continue
+                else:
+                    return False
+            if words[i] not in w_c:
+                w_c[words[i]] = pattern[i]
+            elif words[i] in w_c:
+                value = w_c[words[i]]
+                if value == pattern[i]:
+                    continue
+                else:
+                    return False
+        return True
+
+Example 1:
+
+Input: pattern = "abba", s = "dog cat cat dog"
+Output: true
+
+Example 2:
+
+Input: pattern = "abba", s = "dog cat cat fish"
+Output: false
+
+Example 3:
+
+Input: pattern = "aaaa", s = "dog cat cat dog"
+Output: false
