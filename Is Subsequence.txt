@@ -1,0 +1,23 @@
+Is Subsequence:-
+
+CODE:-
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+
+        j = 0
+        for i in range(len(t)):
+            if j < len(s) and t[i] == s[j]:
+                j += 1
+
+        return j == len(s)
+
+Example 1:
+
+Input: s = "abc", t = "ahbgdc"
+Output: true
+
+Example 2:
+
+Input: s = "axc", t = "ahbgdc"
+Output: false
