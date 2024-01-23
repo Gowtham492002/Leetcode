@@ -1,0 +1,32 @@
+Valid Parentheses:-
+
+CODE:-
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        symbol = {'(': ')', '{': '}', '[': ']'}
+        
+        for char in s:
+            if char in symbol.keys():
+                stack.append(char)
+            elif char in symbol.values():
+                if not stack or symbol[stack.pop()] != char:
+                    return False
+
+        return not stack
+
+Example 1:
+
+Input: s = "()"
+Output: true
+
+Example 2:
+
+Input: s = "()[]{}"
+Output: true
+
+Example 3:
+
+Input: s = "(]"
+Output: false
