@@ -1,0 +1,41 @@
+Find the Index of the First Occurrence in a String:-
+
+CODE:-
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if not needle:
+            return 0
+
+        p = 0
+        start_index = -1
+        i = 0  # Use a separate variable for iteration
+        while i < len(haystack):
+            if haystack[i] == needle[p]:
+                if p == 0:
+                    start_index = i
+                p += 1
+                i += 1
+                if p == len(needle):
+                    return start_index
+            else:
+                if start_index != -1:
+                    i = start_index + 1
+                else:
+                    i += 1
+                p = 0
+                start_index = -1
+        return -1
+
+Example 1:
+
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+Explanation: "sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
+
+Example 2:
+
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+Explanation: "leeto" did not occur in "leetcode", so we return -1.
