@@ -1,0 +1,22 @@
+Check if the Sentence Is Pangram:
+
+CODE:
+
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        if len(set(sentence)) == 26:
+            return True
+        else:
+            return False
+
+Example 1:
+
+Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
+Output: true
+Explanation: sentence contains at least one of every letter of the English alphabet.
+
+
+Example 2:
+
+Input: sentence = "leetcode"
+Output: false
