@@ -1,0 +1,25 @@
+Reverse Words in a String III:
+
+CODE:
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        ans = ''
+        split = s.split()
+        for i in range(len(split)):
+            ans += split[i][::-1]
+            if i < len(split)-1:
+                ans+=" "
+            else:
+                ans+=""
+        return ans
+
+Example 1:
+
+Input: s = "Let's take LeetCode contest"
+Output: "s'teL ekat edoCteeL tsetnoc"
+
+Example 2:
+
+Input: s = "Mr Ding"
+Output: "rM gniD"
