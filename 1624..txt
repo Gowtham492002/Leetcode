@@ -1,0 +1,32 @@
+1624. Largest Substring Between Two Equal Characters:
+
+CODE:
+
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        ans = -1
+        for i in range(len(s)):
+            for j in range(len(s)-1, i, -1):
+                if s[i] == s[j]:
+                    ans = max(ans, j - i - 1)
+                    break
+        return ans
+
+Example 1:
+
+Input: s = "aa"
+Output: 0
+Explanation: The optimal substring here is an empty substring between the two 'a's.
+
+Example 2:
+
+Input: s = "abca"
+Output: 2
+
+Explanation: The optimal substring here is "bc".
+
+Example 3:
+
+Input: s = "cbzxy"
+Output: -1
+Explanation: There are no characters that appear twice in s.
