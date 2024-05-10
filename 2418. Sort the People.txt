@@ -1,0 +1,26 @@
+2418. Sort the People:
+
+CODE:
+
+class Solution:
+    def sortPeople(self, n: List[str], h: List[int]) -> List[str]:
+	  d ={}
+        for i in range(len(n)):
+            d[h[i]] = n[i]
+        s = sorted(h,reverse=True)
+        ans = []
+        for i in s:
+            ans.append(d[i])
+        return ans
+
+Example 1:
+
+Input: names = ["Mary","John","Emma"], heights = [180,165,170]
+Output: ["Mary","Emma","John"]
+Explanation: Mary is the tallest, followed by Emma and John.
+
+Example 2:
+
+Input: names = ["Alice","Bob","Bob"], heights = [155,185,150]
+Output: ["Bob","Alice","Bob"]
+Explanation: The first Bob is the tallest, followed by Alice and the second Bob.
