@@ -1,0 +1,30 @@
+2405. Optimal Partition of String:
+
+CODE:
+
+class Solution:
+    def partitionString(self, s: str) -> int:
+        ans = 0
+        sub_str = set()
+        for i in s:
+            if i in sub_str:
+                ans+=1
+                sub_str = set()
+            sub_str.add(i)
+        return ans+1
+
+               
+Example 1:
+
+Input: s = "abacaba"
+Output: 4
+Explanation:
+Two possible partitions are ("a","ba","cab","a") and ("ab","a","ca","ba").
+It can be shown that 4 is the minimum number of substrings needed.
+
+Example 2:
+
+Input: s = "ssssss"
+Output: 6
+Explanation:
+The only valid partition is ("s","s","s","s","s","s").
