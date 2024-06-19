@@ -1,0 +1,54 @@
+1370. Increasing Decreasing String:
+
+CODE:
+
+class Solution:
+    def sortString(self, s: str) -> str:
+        d = {}
+        l = sorted(set(s))
+        res=""
+        for i in s:
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        while d:
+            for i in l:
+                if i in d:
+                    if d[i]>0:
+                        res+=i
+                        d[i]-=1
+                    else:
+                        del d[i]
+            for i in l[::-1]:
+                if i in d:
+                    if d[i]>0:
+                        res+=i
+                        d[i]-=1
+                    else:
+                        del d[i]
+       
+
+        return res
+
+Example 1:
+
+Input: s = "aaaabbbbcccc"
+Output: "abccbaabccba"
+Explanation: After steps 1, 2 and 3 of the first iteration, result = "abc"
+After steps 4, 5 and 6 of the first iteration, result = "abccba"
+First iteration is done. Now s = "aabbcc" and we go back to step 1
+After steps 1, 2 and 3 of the second iteration, result = "abccbaabc"
+After steps 4, 5 and 6 of the second iteration, result = "abccbaabccba"
+
+Example 2:
+
+Input: s = "rat"
+Output: "art"
+Explanation: The word "rat" becomes "art" after re-ordering it with the mentioned algorithm.
+                
+
+
+
+
+
