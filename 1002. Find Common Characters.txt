@@ -1,0 +1,30 @@
+1002. Find Common Characters:
+
+CODE:
+
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        com_fre = [0]*26
+        for i in words[0]:
+            com_fre[ord(i)-ord('a')]+=1
+        for i in words[1:]:
+            cur_fre = [0]*26
+            for j in i:
+                cur_fre[ord(j)-ord('a')]+=1
+            for k in range(26):
+                com_fre[k]=min(com_fre[k],cur_fre[k])
+
+        res = []
+        for i in range(26):
+            res.extend([chr(i+ord('a'))]*com_fre[i])
+        return res
+
+Example 1:
+
+Input: words = ["bella","label","roller"]
+Output: ["e","l","l"]
+
+Example 2:
+
+Input: words = ["cool","lock","cook"]
+Output: ["c","o"]
