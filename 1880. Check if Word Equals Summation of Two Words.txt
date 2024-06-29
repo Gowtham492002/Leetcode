@@ -1,0 +1,46 @@
+1880. Check if Word Equals Summation of Two Words:
+
+CODE:
+
+class Solution:
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+        fword = ""
+        sword = ''
+        tword = ''
+        for i in firstWord:
+            fword+= str(ord(i)-ord('a'))
+        for i in secondWord:
+            sword+= str(ord(i)-ord('a'))
+        for i in targetWord:
+            tword+= str(ord(i)-ord('a'))
+        return int(fword)+int(sword)==int(tword)
+
+Example 1:
+
+Input: firstWord = "acb", secondWord = "cba", targetWord = "cdb"
+Output: true
+Explanation:
+The numerical value of firstWord is "acb" -> "021" -> 21.
+The numerical value of secondWord is "cba" -> "210" -> 210.
+The numerical value of targetWord is "cdb" -> "231" -> 231.
+We return true because 21 + 210 == 231.
+
+Example 2:
+
+Input: firstWord = "aaa", secondWord = "a", targetWord = "aab"
+Output: false
+Explanation: 
+The numerical value of firstWord is "aaa" -> "000" -> 0.
+The numerical value of secondWord is "a" -> "0" -> 0.
+The numerical value of targetWord is "aab" -> "001" -> 1.
+We return false because 0 + 0 != 1.
+
+Example 3:
+
+Input: firstWord = "aaa", secondWord = "a", targetWord = "aaaa"
+Output: true
+Explanation: 
+The numerical value of firstWord is "aaa" -> "000" -> 0.
+The numerical value of secondWord is "a" -> "0" -> 0.
+The numerical value of targetWord is "aaaa" -> "0000" -> 0.
+We return true because 0 + 0 == 0.
