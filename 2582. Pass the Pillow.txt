@@ -1,0 +1,34 @@
+2582. Pass the Pillow:
+
+CODE:
+
+class Solution:
+    def passThePillow(self, n: int, time: int) -> int:
+        i=1
+        direction =0
+        while time>0:
+            if i==1:
+                direction=0
+            elif i==n:
+                direction=-1
+            if direction==0:
+                i+=1
+            else:
+                i-=1
+            time-=1
+        return i
+
+
+Example 1:
+
+Input: n = 4, time = 5
+Output: 2
+Explanation: People pass the pillow in the following way: 1 -> 2 -> 3 -> 4 -> 3 -> 2.
+After five seconds, the 2nd person is holding the pillow.
+
+Example 2:
+
+Input: n = 3, time = 2
+Output: 3
+Explanation: People pass the pillow in the following way: 1 -> 2 -> 3.
+After two seconds, the 3rd person is holding the pillow.
