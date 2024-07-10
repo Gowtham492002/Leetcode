@@ -1,0 +1,35 @@
+1598. Crawler Log Folder:
+
+CODE:-
+
+class Solution:
+    def minOperations(self, logs: List[str]) -> int:
+        res = 0
+        for i in logs:
+            if i=="../":
+                if res!=0:
+                    res-=1;
+                else:
+                    continue
+            elif i=="./":
+                continue
+            else:
+                res+=1
+        return res
+
+
+Example 1:
+
+Input: logs = ["d1/","d2/","../","d21/","./"]
+Output: 2
+Explanation: Use this change folder operation "../" 2 times and go back to the main folder.
+
+Example 2:
+
+Input: logs = ["d1/","d2/","./","d3/","../","d31/"]
+
+Output: 3
+Example 3:
+
+Input: logs = ["d1/","../","../","../"]
+Output: 0
