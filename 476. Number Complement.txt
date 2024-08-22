@@ -1,0 +1,20 @@
+476. Number Complement:
+
+CODE:
+
+class Solution:
+    def findComplement(self, num: int) -> int:
+        binary = []
+        while num>0:
+            rem = num%2
+            binary.append(str(rem))
+            num=num//2
+        res=""
+        for i in range(len(binary)-1,-1,-1):
+            if binary[i]=='1':
+                res+='0'
+            else:
+                res+='1'
+        return int(res,2)
+        
+
