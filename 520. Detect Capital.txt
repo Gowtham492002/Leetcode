@@ -1,0 +1,30 @@
+520. Detect Capital:
+
+CODE:
+
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
+        count = 0
+        for i in word:
+            if ord(i)<=90:
+                count+=1
+        if count==len(word):
+            return True
+        elif count==0:
+            return True
+        elif count==1 and ord(word[0])<=90:
+            return True
+        else:
+            return False
+        
+                
+
+Example 1:
+
+Input: word = "USA"
+Output: true
+
+Example 2:
+
+Input: word = "FlaG"
+Output: false
