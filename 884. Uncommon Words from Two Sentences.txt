@@ -1,0 +1,40 @@
+884. Uncommon Words from Two Sentences:
+
+CODE:
+
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        ans = []
+        s1 = s1.split()
+        s2 = s2.split()
+        d = {}
+        for i in s1:
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        for i in s2:
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        for k,v in d.items():
+            if v==1:
+                ans.append(k)
+        return ans
+
+Example 1:
+
+Input: s1 = "this apple is sweet", s2 = "this apple is sour"
+
+Output: ["sweet","sour"]
+
+Explanation:
+
+The word "sweet" appears only in s1, while the word "sour" appears only in s2.
+
+Example 2:
+
+Input: s1 = "apple apple", s2 = "banana"
+
+Output: ["banana"]
