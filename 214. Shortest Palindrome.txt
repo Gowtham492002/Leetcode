@@ -1,0 +1,30 @@
+214. Shortest Palindrome:
+
+CODE:
+
+class Solution:
+    def shortestPalindrome(self, s: str) -> str:
+        if s == "":
+            return ""
+        i = len(s) - 1
+        res = s
+        l = list(s)
+        dummy = ""
+        while i >= 0:
+            if res == res[::-1]: 
+                return  res  
+            else:
+                res = s
+                dummy += l[i] 
+                res = dummy + res 
+                i -= 1
+
+Example 1:
+
+Input: s = "aacecaaa"
+Output: "aaacecaaa"
+
+Example 2:
+
+Input: s = "abcd"
+Output: "dcbabcd"
